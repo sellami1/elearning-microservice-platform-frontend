@@ -25,8 +25,8 @@ export function LoginForm() {
   } = useForm<LoginSchemaInput>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      email: "",
-      password: "",
+      email: "kadhem@instructor.test",
+      password: "Kadhem1*",
     },
   });
 
@@ -43,8 +43,7 @@ export function LoginForm() {
       setSession({ token: data.token, role: claims.role, user: data.data });
       toast.success("Welcome back");
 
-      const nextUrl = searchParams.get("next");
-      router.push(nextUrl || "/account");
+      router.push("/");
     } catch (error) {
       toast.error(getErrorMessage(error, "Unable to login"));
     }

@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  outputFileTracingRoot: process.cwd(),
+  productionBrowserSourceMaps: false,
+  experimental: {
+    serverSourceMaps: false,
+    preloadEntriesOnStart: false,
+  },
 };
 
 export default nextConfig;

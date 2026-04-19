@@ -85,7 +85,7 @@ export function RegisterForm() {
         </div>
         <div>
           <Label htmlFor="role">Role</Label>
-          <select id="role" className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" {...register("role")}>
+          <select id="role" className="mt-1 w-full rounded-lg border border-[var(--border)] px-3 py-2 text-sm" {...register("role")}>
             <option value="learner">Learner</option>
             <option value="instructor">Instructor</option>
           </select>

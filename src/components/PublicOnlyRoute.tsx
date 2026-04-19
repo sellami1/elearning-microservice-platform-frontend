@@ -1,22 +1,24 @@
 "use client";
 
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import { useAuthStore } from "@/src/store/auth.store";
 
 export function PublicOnlyRoute({ children }: { children: React.ReactNode }) {
   const router = useRouter();
+  const pathname = usePathname();
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  const isCourseRoute = pathname.startsWith("/courses");
 
   useEffect(() => {
-    if (isAuthenticated) {
-      router.replace("/account");
+    if (isAuthenticated && !isCourseRoute) {
+      router.replace("/");
     }
-  }, [isAuthenticated, router]);
+  }, [isAuthenticated, isCourseRoute, router]);
 
-  if (isAuthenticated) {
-    return <p className="text-sm text-slate-600">Redirecting...</p>;
+  if (isAuthenticated && !isCourseRoute) {
+    return <p className="text-sm text-[var(--muted-foreground)]">Redirecting...</p>;
   }
 
   return <>{children}</>;

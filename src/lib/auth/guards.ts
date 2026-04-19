@@ -4,9 +4,6 @@ export function isAuthRoute(pathname: string): boolean {
   return [
     "/login",
     "/register",
-    "/forgot-password",
-    "/reset-password",
-    "/verify-email",
   ].some((prefix) => pathname.startsWith(prefix));
 }
 

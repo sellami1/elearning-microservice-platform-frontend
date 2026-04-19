@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Providers from "@/app/providers";
+import { AuthenticatedTopbar } from "@/src/components/AuthenticatedTopbar";
+import { ThemeBootstrap } from "@/src/components/ThemeBootstrap";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -26,9 +28,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <ThemeBootstrap />
+        <AuthenticatedTopbar />
         <Providers>{children}</Providers>
       </body>
     </html>

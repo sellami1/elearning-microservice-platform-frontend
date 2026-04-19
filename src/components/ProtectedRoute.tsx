@@ -17,7 +17,7 @@ export function ProtectedRoute({ children }: { children: React.ReactNode }) {
   }, [isAuthenticated, pathname, router]);
 
   if (!isAuthenticated) {
-    return <p className="text-sm text-slate-600">Redirecting to login...</p>;
+    return <p className="text-sm text-[var(--muted-foreground)]">Redirecting to login...</p>;
   }
 
   return <>{children}</>;
