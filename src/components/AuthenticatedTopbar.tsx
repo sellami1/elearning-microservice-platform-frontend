@@ -24,6 +24,7 @@ export function AuthenticatedTopbar() {
   const isMyCoursesActive = isAuthenticated ? pathname === myCoursesHref || pathname.startsWith(`${myCoursesHref}/`) : false;
   const isProfileActive = pathname === "/account";
   const isBrowseActive = pathname === "/" && searchParams.get("view") === "browse";
+  const isAnalyticsActive = pathname === "/analytics";
 
   const handleLogout = () => {
     clearSession();
@@ -49,6 +50,10 @@ export function AuthenticatedTopbar() {
                   Browse courses
                 </Link>
               ) : null}
+
+              <Link className={linkClass(isAnalyticsActive)} href="/analytics">
+                Analytics
+              </Link>
 
               <Link className={linkClass(isProfileActive)} href="/account">
                 Profile
