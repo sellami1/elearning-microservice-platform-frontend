@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Suspense } from "react";
 import Providers from "@/app/providers";
 import { AuthenticatedTopbar } from "@/src/components/AuthenticatedTopbar";
 import { ThemeBootstrap } from "@/src/components/ThemeBootstrap";
@@ -33,7 +34,9 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <ThemeBootstrap />
-        <AuthenticatedTopbar />
+        <Suspense fallback={null}>
+          <AuthenticatedTopbar />
+        </Suspense>
         <Providers>{children}</Providers>
       </body>
     </html>
