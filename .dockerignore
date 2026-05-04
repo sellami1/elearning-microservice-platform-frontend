@@ -2,9 +2,17 @@ node_modules
 .next
 .git
 .github
+.idea
+.vscode
 .windsurf
 .env
 .env.*
 coverage
 *.log
+*.tmp
+*.swp
+*.pdf
+README*
+docs/
+tests/
 tsconfig.tsbuildinfo
