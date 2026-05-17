@@ -1,7 +1,7 @@
-const DEFAULT_USER_SERVICE_URL = "http://localhost";
-const DEFAULT_COURSE_SERVICE_URL = "http://localhost";
-const DEFAULT_ANALYTICS_SERVICE_URL = "http://localhost";
-const DEFAULT_MINIO_PUBLIC_URL = "http://localhost/media";
+const DEFAULT_USER_SERVICE_URL = "http://homeserver";
+const DEFAULT_COURSE_SERVICE_URL = "http://homeserver";
+const DEFAULT_ANALYTICS_SERVICE_URL = "http://homeserver";
+const DEFAULT_MINIO_PUBLIC_URL = "http://homeserver/media";
 
 function readUserServiceUrl(): string {
   return process.env.NEXT_PUBLIC_USER_SERVICE_URL || DEFAULT_USER_SERVICE_URL;
